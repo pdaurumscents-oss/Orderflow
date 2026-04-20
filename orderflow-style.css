@@ -308,3 +308,7 @@ th {
     padding-top: 56px;
   }
 }
+#backend,
+a[href="#backend"] {
+  display: none !important;
+}
