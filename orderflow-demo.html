@@ -1,0 +1,218 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OrderFlow Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">Order Intake Demo</p>
+      <h1>รับออเดอร์ให้ครบ ลดการคุยแชทไปมา</h1>
+      <p class="lead">
+        เว็บเดโม่สำหรับเสนอร้านค้าให้เห็น flow การรับออเดอร์แบบเป็นระบบ
+        โดยไม่ใช้ API Key และยังไม่ต้องมี backend ซับซ้อน
+      </p>
+      <div class="hero-actions">
+        <a href="#demo" class="btn btn-primary">ลองเดโม่</a>
+        <a href="#backend" class="btn btn-secondary">ดูหลังบ้าน</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container grid-3">
+        <article class="card">
+          <h2>ลดข้อมูลตกหล่น</h2>
+          <p>บังคับให้ลูกค้ากรอกข้อมูลสำคัญให้ครบก่อนส่งออเดอร์</p>
+        </article>
+        <article class="card">
+          <h2>อ่านง่าย</h2>
+          <p>มีสรุปคำสั่งซื้อก่อนส่ง และมีตารางหลังบ้านให้อ่านต่อได้ทันที</p>
+        </article>
+        <article class="card">
+          <h2>เริ่มได้ทันที</h2>
+          <p>อัปขึ้น GitHub Pages ได้เลย เหมาะกับทำเดโม่และทดสอบ flow</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="demo" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Demo</p>
+          <h2>เลือกประเภทเดโม่</h2>
+          <p>สลับดูได้ 2 แบบ: ร้านเค้ก และร้านสกรีนเสื้อ</p>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-target="cakeForm">ร้านเค้ก</button>
+          <button class="tab" data-target="printForm">ร้านสกรีนเสื้อ</button>
+        </div>
+
+        <div class="demo-wrapper">
+          <form id="cakeForm" class="order-form active">
+            <h3>ฟอร์มรับออเดอร์ร้านเค้ก</h3>
+            <div class="form-grid">
+              <label>
+                ชื่อลูกค้า
+                <input type="text" name="customerName" required />
+              </label>
+              <label>
+                เบอร์โทร / Line
+                <input type="text" name="contact" required />
+              </label>
+              <label>
+                วันที่ต้องการรับ
+                <input type="date" name="pickupDate" required />
+              </label>
+              <label>
+                งบประมาณ
+                <input type="text" name="budget" placeholder="เช่น 800 - 1500 บาท" required />
+              </label>
+              <label>
+                ขนาดเค้ก
+                <select name="cakeSize" required>
+                  <option value="">เลือกขนาด</option>
+                  <option>1 ปอนด์</option>
+                  <option>2 ปอนด์</option>
+                  <option>3 ปอนด์</option>
+                  <option>4 ปอนด์ขึ้นไป</option>
+                </select>
+              </label>
+              <label>
+                รสชาติ
+                <select name="flavor" required>
+                  <option value="">เลือกรสชาติ</option>
+                  <option>วานิลลา</option>
+                  <option>ช็อกโกแลต</option>
+                  <option>สตรอว์เบอร์รี</option>
+                  <option>มะพร้าว</option>
+                  <option>อื่นๆ</option>
+                </select>
+              </label>
+              <label class="full">
+                ข้อความบนเค้ก
+                <input type="text" name="messageOnCake" placeholder="เช่น Happy Birthday Nana" />
+              </label>
+              <label class="full">
+                รายละเอียดเพิ่มเติม / reference
+                <textarea name="notes" rows="4" placeholder="เช่น โทนมินิมอล สีขาวครีม แนบ ref ทาง Line"></textarea>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary preview-btn">ดูสรุปก่อนส่ง</button>
+              <button type="submit" class="btn btn-primary">ส่งออเดอร์เดโม่</button>
+            </div>
+          </form>
+
+          <form id="printForm" class="order-form">
+            <h3>ฟอร์มรับงานร้านสกรีนเสื้อ</h3>
+            <div class="form-grid">
+              <label>
+                ชื่อลูกค้า
+                <input type="text" name="customerName" required />
+              </label>
+              <label>
+                เบอร์โทร / Line
+                <input type="text" name="contact" required />
+              </label>
+              <label>
+                ประเภทงาน
+                <select name="jobType" required>
+                  <option value="">เลือกประเภทงาน</option>
+                  <option>สกรีนเสื้อยืด</option>
+                  <option>เสื้อทีม / เสื้อกิจกรรม</option>
+                  <option>เสื้อกีฬา</option>
+                  <option>งานพิมพ์อื่นๆ</option>
+                </select>
+              </label>
+              <label>
+                จำนวน
+                <input type="number" name="quantity" min="1" required />
+              </label>
+              <label>
+                สีเสื้อ
+                <input type="text" name="shirtColor" placeholder="เช่น ดำ / ขาว / กรม" required />
+              </label>
+              <label>
+                วันใช้งาน
+                <input type="date" name="deadline" required />
+              </label>
+              <label class="full">
+                ไซซ์ / รายละเอียดงาน
+                <textarea name="sizes" rows="4" placeholder="เช่น S 5, M 10, L 7, XL 3"></textarea>
+              </label>
+              <label class="full">
+                รายละเอียดเพิ่มเติม / โลโก้ / จุดวางงาน
+                <textarea name="notes" rows="4" placeholder="เช่น หน้าอกซ้าย 1 จุด หลังใหญ่ 1 จุด ลูกค้าจะส่งโลโก้ทาง Line"></textarea>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary preview-btn">ดูสรุปก่อนส่ง</button>
+              <button type="submit" class="btn btn-primary">ส่งบรีฟเดโม่</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="backend" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Backend Demo</p>
+          <h2>ตารางหลังบ้านเดโม่</h2>
+          <p>ตอนนี้เก็บข้อมูลใน localStorage เพื่อให้คุณลอง flow ได้ก่อน</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>เวลา</th>
+                <th>ประเภท</th>
+                <th>ลูกค้า</th>
+                <th>ติดต่อ</th>
+                <th>รายละเอียดหลัก</th>
+                <th>สถานะ</th>
+              </tr>
+            </thead>
+            <tbody id="backendTableBody">
+              <tr>
+                <td colspan="6" class="empty-state">ยังไม่มีข้อมูลเดโม่</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="backend-actions">
+          <button id="clearDemoData" class="btn btn-danger">ล้างข้อมูลเดโม่</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="summaryModal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3>สรุปก่อนส่ง</h3>
+        <button id="closeModal" class="icon-btn" type="button">×</button>
+      </div>
+      <div id="summaryContent" class="summary-content"></div>
+      <div class="modal-actions">
+        <button id="confirmSubmit" class="btn btn-primary" type="button">ยืนยันและส่ง</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden">บันทึกข้อมูลเดโม่แล้ว</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
