@@ -309,6 +309,7 @@ th {
   }
 }
 #backend,
+.backend-actions,
 a[href="#backend"] {
   display: none !important;
 }
