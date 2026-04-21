@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>แบบฟอร์มสั่งเค้ก</title>
+  <link rel="stylesheet" href="orderflow-style.css" />
+</head>
+<body>
+  <main>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Cake Order Form</p>
+          <h1>แบบฟอร์มสั่งเค้ก</h1>
+          <p>
+            กรุณากรอกข้อมูลให้ครบเพื่อให้ร้านตรวจสอบรายละเอียดและติดต่อกลับได้เร็วขึ้น
+          </p>
+        </div>
+
+        <div class="demo-wrapper">
+          <form id="cakeForm" class="order-form active">
+            <h3>รายละเอียดคำสั่งซื้อ</h3>
+
+            <div class="form-grid">
+              <label>
+                ชื่อลูกค้า
+                <input type="text" name="customerName" required />
+              </label>
+
+              <label>
+                เบอร์โทร / Line
+                <input type="text" name="contact" required />
+              </label>
+
+              <label>
+                วันที่ต้องการรับ
+                <input type="date" name="pickupDate" required />
+              </label>
+
+              <label>
+                งบประมาณ
+                <input type="text" name="budget" placeholder="เช่น 800 - 1500 บาท" required />
+              </label>
+
+              <label>
+                ขนาดเค้ก
+                <select name="cakeSize" required>
+                  <option value="">เลือกขนาด</option>
+                  <option>1 ปอนด์</option>
+                  <option>2 ปอนด์</option>
+                  <option>3 ปอนด์</option>
+                  <option>4 ปอนด์ขึ้นไป</option>
+                </select>
+              </label>
+
+              <label>
+                รสชาติ
+                <select name="flavor" required>
+                  <option value="">เลือกรสชาติ</option>
+                  <option>วานิลลา</option>
+                  <option>ช็อกโกแลต</option>
+                  <option>สตรอว์เบอร์รี</option>
+                  <option>มะพร้าว</option>
+                  <option>อื่นๆ</option>
+                </select>
+              </label>
+
+              <label class="full">
+                ข้อความบนเค้ก
+                <input type="text" name="messageOnCake" placeholder="เช่น Happy Birthday Nana" />
+              </label>
+
+              <label class="full">
+                รายละเอียดเพิ่มเติม / reference
+                <textarea
+                  name="notes"
+                  rows="5"
+                  placeholder="เช่น โทนมินิมอล สีขาวครีม แนบ ref ทาง Line"
+                ></textarea>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary preview-btn">ตรวจสอบก่อนส่ง</button>
+              <button type="submit" class="btn btn-primary">ส่งคำสั่งซื้อ</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="summaryModal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3>ตรวจสอบก่อนส่ง</h3>
+        <button id="closeModal" class="icon-btn" type="button">×</button>
+      </div>
+      <div id="summaryContent" class="summary-content"></div>
+      <div class="modal-actions">
+        <button id="confirmSubmit" class="btn btn-primary" type="button">ยืนยันและส่ง</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden">บันทึกข้อมูลแล้ว</div>
+
+  <script src="orderflow-script.js"></script>
+</body>
+</html>
